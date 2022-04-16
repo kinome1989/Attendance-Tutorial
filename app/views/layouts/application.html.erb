@@ -6,25 +6,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-      <!--[if lt IE 9]>
-        <script scr="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.jp">
-      </scriput>
-    <![endif]-->
+      <!--HTML shimがこの1行で収まる-->
+      <%= render 'layouts/shim' %>
+        
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <!--headerの内容がこの１行で収まる-->
+    <%= render 'layouts/header' %>
       <div class="container">
-        <%= link_to "AttendanceApp", id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "top",  '#' %></li>
-            <li><%= link_to "login", '#' %></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <div class="container">
-    <%= yield %>
+         <%= yield %>
     </div>
   </body>
 </html>
