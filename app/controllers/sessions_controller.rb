@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       user.authenticate(params[:session][:password])
       # ログイン後にユーザー情報ページにリダイレクトします。
       log_in user
+      remember user
       redirect_to user
     else
       # ここにはエラーメッセージ用のflashを入れます。
